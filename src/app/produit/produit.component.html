@@ -1,0 +1,11 @@
+
+<div class="produit" >
+    <div><img src={{prod.image}}></div>
+    <div>Nom: {{prod.titre}}</div>
+    <div>catégorie: {{prod.Categorie}}</div>
+    <div>Prix: {{prod.prix}}$</div>
+    <div>Quantité: {{prod.quantite}}</div> 
+    <div>Like: {{prod.like}}</div> 
+    <div><button (click)="incremente()">Like</button></div>
+    <div><button (click)="decremente()"[disabled]="prod.quantite==0">Acheter</button></div>
+</div>

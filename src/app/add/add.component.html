@@ -1,0 +1,53 @@
+<p>add works!</p>
+<div id="recherche">
+    <form #f="ngForm" (ngSubmit)="Save(f)" >
+            <div>
+                <label value="id">Id</label>
+                <input type="texte" name="id" required ngModel #i="ngModel" pattern="[1-9]+$">
+                    <div *ngIf="i.invalid && i.touched">
+                            <div *ngIf="i.errors.required">Inserer l'indice</div>
+                            <div *ngIf="i.errors.pattern">Inserer un chiffre</div>
+                    </div>
+           </div>
+           <div>
+            <label value="titre"><TItle></TItle></label>
+            <input type="texte" name="titre" required ngModel #t="ngModel" >
+                <div *ngIf="t.invalid && t.touched">
+                        <div *ngIf="t.errors.required">Inserer l'indice</div>
+                      
+                </div>
+       </div>
+       <div>
+        <label value="categorie">Categorie</label>
+        <input type="texte" name="categorie" required ngModel #c="ngModel" >
+            <div *ngIf="c.invalid && c.touched">
+                    <div *ngIf="c.errors.required">Inserer l'indice</div>
+            </div>
+   </div>
+   <div>
+    <label value="prix">Prix</label>
+    <input type="texte" name="prix" required ngModel #p="ngModel" pattern="[1-9][0-9]$">
+        <div *ngIf="p.invalid && p.touched">
+                <div *ngIf="p.errors.required">Inserer l'indice</div>
+                <div *ngIf="p.errors.pattern">Inserer un chiffre</div>
+        </div>
+    </div>
+    <div>
+        <label value="quantite">quantité</label>
+        <input type="texte" name="quantite" required ngModel #q="ngModel" pattern="[1-9][0-9]+">
+            <div *ngIf="q.invalid && q.touched">
+                    <div *ngIf="q.errors.required">Inserer l'indice</div>
+                    <div *ngIf="q.errors.pattern">Inserer un chiffre</div>
+            </div>
+   </div>
+   <div>
+    <label value="img">Image</label>
+    <input type="file" name="img" required ngModel #img="ngModel" (change)="handleFileInput($event.target.files)" >
+        <div *ngIf="img.invalid && img.touched">
+                <div *ngIf="img.errors.required">Inserer l'indice</div>
+              
+        </div>
+</div>
+            <div><button type="submit" [disabled]="f.invalid" >Save</button></div>
+    </form>
+</div>

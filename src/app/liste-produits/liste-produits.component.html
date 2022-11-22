@@ -1,0 +1,18 @@
+
+        <div class="recherche">
+    <form #f="ngForm" (ngSubmit)="Recherche(f)">
+        <div>
+            <label value="categorie">Recherche Par catégorie</label>
+            <input type="texte" name="categorie" ngModel>
+            <button type="submit">Rechercher</button>
+        </div>
+    </form>
+    
+        
+        <div class="i" *ngFor="let produit of List">
+        <div class="liste" *ngIf="produit.Categorie.localeCompare(cat)==0 || cat==null" >
+            <div><img [src]=produit.image></div>
+            <div><a routerLink="{{produit.id}}">{{produit.titre}}</a></div>
+        </div>
+        </div>
+    </div>
